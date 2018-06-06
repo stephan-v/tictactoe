@@ -1,26 +1,22 @@
 <template>
 <div>
-  <table class="grid">
-    <tr>
-      <Cell position="LT"></Cell>
-      <Cell position="CT"></Cell>
-      <Cell position="RT"></Cell>
-    </tr>
-    <tr>
-      <Cell position="LM"></Cell>
-      <Cell position="CM"></Cell>
-      <Cell position="RM"></Cell>
-    </tr>
-    <tr>
-      <Cell position="LB"></Cell>
-      <Cell position="CB"></Cell>
-      <Cell position="RB"></Cell>
-    </tr>
-  </table>
-    <div>
-      <button v-on:click="startNewGame">New Game</button>
-    </div>
+  <div id="newgame">
+    <button v-on:click="startNewGame">New Game</button>
   </div>
+  <div class="grid">
+    <Cell position="LT"></Cell>
+    <Cell position="CT"></Cell>
+    <Cell position="RT"></Cell>
+
+    <Cell position="LM"></Cell>
+    <Cell position="CM"></Cell>
+    <Cell position="RM"></Cell>
+
+    <Cell position="LB"></Cell>
+    <Cell position="CB"></Cell>
+    <Cell position="RB"></Cell>
+  </div>
+</div>
   
 </template>
 
@@ -38,20 +34,14 @@ import Cell  from '@/components/Cell.vue';
 </script>
 
 <style>
-table {
-  background-color: #616161;
-  width: 500px;
-  height: 500px;
-  margin: 0 auto;
-  border-collapse:collapse;
- 
+#newgame {
+  margin-bottom:20px;
 }
 
-td {
-   border: 1px solid white;
-   width: 150px;
-   height:150px;
-   color: white;
-   font-size: 8em;
+.grid {
+  display: grid;
+  grid-gap: 5px 5px;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
 }
 </style>

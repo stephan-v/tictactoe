@@ -1,11 +1,11 @@
 <template>
   <div class="tictactoe">
-      <Board></Board>
-      <div class="rightpanel">
-        <CurrentPlayer></CurrentPlayer>
-        <Score icon="x"></Score>
-        <Score icon="o"></Score>
-      </div>
+    <div class="scoreboard">
+      <Score icon="x"></Score>
+      <CurrentPlayer></CurrentPlayer>
+      <Score icon="o"></Score>
+    </div>
+    <Board></Board>
   </div>
 </template>
 
@@ -37,34 +37,12 @@ export default class TicTacToe extends Vue {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-
-.tictactoe {
-  width:50%;
-  margin:0 auto;
-}
-
-.tictactoe > div {
-  float: left;
-}
-
-.rightpanel {
-  margin-left:300px;
-}
+<style>
+  .scoreboard {
+    align-items: center;
+    background: lightblue;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 10px;
+  }
 </style>

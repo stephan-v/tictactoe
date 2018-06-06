@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <h3>Score {{icon}}:</h3>
-    <br />
-    {{score}}
-    </div>
+    <span><strong>{{icon}}:</strong> {{score}} </span>
 </template>
 
 <script>
@@ -17,6 +13,8 @@ import Cell  from '@/components/Cell.vue';
         }
     }
 </script>
-
-<style>
+<style scoped>
+    span {
+        font-size: 2em;
+    }
 </style>
