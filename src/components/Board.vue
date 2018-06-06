@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div>
+  <div id="newgame">
     <button v-on:click="startNewGame">New Game</button>
   </div>
   <div class="grid">
@@ -34,6 +34,10 @@ import Cell  from '@/components/Cell.vue';
 </script>
 
 <style>
+#newgame {
+  margin-bottom:20px;
+}
+
 .grid {
   display: grid;
   grid-gap: 5px 5px;
