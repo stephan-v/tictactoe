@@ -1,10 +1,10 @@
 <template>
 <div>
-  <div v-if="gameHasAWinner">{{getWinner}} won!</div>
-  <div v-if="gameIsDraw">The game is a draw!</div>
-  <div v-if="!gameIsOver">
+  <span v-if="gameHasAWinner">{{getWinner}} won!</span>
+  <span v-if="gameIsDraw">The game is a draw!</span>
+  <span v-if="!gameIsOver">
       It's now the turn for '{{getCurrentPlayer}}'
-  </div>  
+  </span>  
 </div>
 </template>
 

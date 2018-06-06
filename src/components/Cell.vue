@@ -1,5 +1,5 @@
 <template>
-    <td v-on:click="onClick()">{{marker}}</td>
+    <div v-on:click="onClick()">{{marker}}</div>
 </template>
 
 <script>
@@ -23,6 +23,12 @@
     }
 </script>
 
-<style>
-
+<style scoped>
+    div {
+        background: lightblue;
+        font-size: 110px;
+        height: 120px;
+        line-height: 110px;
+        width: 120px;
+    }
 </style>
