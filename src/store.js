@@ -59,7 +59,7 @@ export default new Vuex.Store({
         }
       }
       return win;
-     function cellsAreEqual(firstCell:string, secondCell:string, thirdCell:string) {
+     function cellsAreEqual(firstCell, secondCell, thirdCell) {
        return firstCell !== ''   && firstCell === secondCell && secondCell === thirdCell; 
      }
    },
@@ -78,7 +78,7 @@ export default new Vuex.Store({
    getCurrentPlayer: (state) => {
      return state.currentPlayer.toUpperCase();
    },
-   getScore: (state) => (icon:string) => {
+   getScore: (state) => (icon) => {
      return icon === 'x' ? state.scoreX : state.scoreO;
    }
   }

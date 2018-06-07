@@ -9,20 +9,12 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import Board from "@/components/Board.vue";
-import CurrentPlayer from "@/components/CurrentPlayer.vue";
-import Score from "@/components/Score.vue";
+<script>
+import Board from "./Board.vue";
+import CurrentPlayer from "./CurrentPlayer.vue";
+import Score from "./Score.vue";
 
-@Component({
-  components: {
-    Board,
-    CurrentPlayer,
-    Score
-  },
-})
-export default class TicTacToe extends Vue {
+export default {
   data () {
     return {
       matchNo: 0,
@@ -31,9 +23,11 @@ export default class TicTacToe extends Vue {
         x: 0
       }
     }
-}
-  constructor() {
-    super();
+  },
+  components: {
+    Board,
+    CurrentPlayer,
+    Score
   }
 }
 </script>

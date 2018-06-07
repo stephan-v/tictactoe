@@ -4,17 +4,14 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import TicTacToe from '@/components/TicTacToe.vue'; // @ is an alias to /src
+<script>
+import TicTacToe from './components/TicTacToe.vue';
 
-
-@Component({
+export default {
   components: {
     TicTacToe
-  },
-})
-export default class Game extends Vue {}
+  }
+}
 </script>
 
 <style>
