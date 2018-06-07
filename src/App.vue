@@ -1,12 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/game">Game</router-link>
-    </div>
-    <router-view/>
+    <TicTacToe></TicTacToe>
   </div>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import TicTacToe from '@/components/TicTacToe.vue'; // @ is an alias to /src
+
+
+@Component({
+  components: {
+    TicTacToe
+  },
+})
+export default class Game extends Vue {}
+</script>
 
 <style>
 #app {
@@ -15,17 +24,5 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-#nav {
-  padding: 10px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
