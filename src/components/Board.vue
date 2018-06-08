@@ -23,14 +23,14 @@
 <script>
 import Cell  from '@/components/Cell.vue';
 
-    export default {   
-        components: { Cell },         
-        methods : {
-          startNewGame: function() {
-            this.$store.commit('startNewGame');
-          }
-        }
+export default {   
+    components: { Cell },         
+    methods : {
+      startNewGame: function() {
+        this.$store.commit('startNewGame');
+      }
     }
+}
 </script>
 
 <style>
