@@ -44,7 +44,6 @@ export default new Vuex.Store({
       const win = cellsAreEqual(state.cellMarkers.LT, state.cellMarkers.CT, state.cellMarkers.RT)
         || cellsAreEqual(state.cellMarkers.LM, state.cellMarkers.CM, state.cellMarkers.RM)
         || cellsAreEqual(state.cellMarkers.LB, state.cellMarkers.CB, state.cellMarkers.RB)
-        || cellsAreEqual(state.cellMarkers.LM, state.cellMarkers.CM, state.cellMarkers.RB)
         || cellsAreEqual(state.cellMarkers.LT, state.cellMarkers.LM, state.cellMarkers.LB)
         || cellsAreEqual(state.cellMarkers.CT, state.cellMarkers.CM, state.cellMarkers.CB)
         || cellsAreEqual(state.cellMarkers.RT, state.cellMarkers.RM, state.cellMarkers.RB)
