@@ -1,5 +1,9 @@
+# TicTacToe
+
+Tijdens deze hands-on sessie gaan we Vue leren kennen. Dit door het spel TicTacToe (/Boter-kaas-en-eieren) te bouwen (https://nl.wikipedia.org/wiki/Boter-kaas-en-eieren).
+
 # Opdracht 1
->Maak een component voor het spel TicTacToe. Een leeg component ziet er als volgt uit: 
+>Maak een component voor het spel TicTacToe (components/TicTactoe.vue). Een leeg component ziet er als volgt uit: 
 ```html
 <template>
 </template>
@@ -13,17 +17,32 @@
 </style>
 ```
 
-Zorg ook dat het nieuwe component beschikbaar komt binnen het hoofdcomponent 'App'. Zorg vervolgens dat de inhoud van dit component wordt meegenomen in de template.
+Import het component in App.vue
+```js 
+import TicTacToe from './components/TicTacToe.vue';
+```
+Declare het component in App.vue
+```js
+export default {
+  components: {
+    TicTacToe
+  }
+}
+```
+Zet het in de template:
+```html
+<div id="app">
+  <TicTacToe></TicTacToe>   
+</div>
+``` 
 
-#Opdracht 2
+# Opdracht 2
 > Maak een component om het speelbord weer te geven.
 
-Om het spel te kunnen spelen zijn we nog een aantal elementen nodig. Het belangrijkste compoment is het speelbord. Deze bestaat uit een veld van 9 (3x3)vlakken:
-
-Voor het gemak en om tijd te besparen kun je gebruik maken van onderstaande CSS. We maken gebruik van CSS-Grid.
+Om het spel te kunnen spelen zijn moet er een speelbord komen. Deze bestaat uit een veld van 9 (3x3) vlakken. Voor het gemak en om tijd te besparen kun je gebruik maken van onderstaande CSS. We maken gebruik van CSS-Grid.
 
 ```html
-  <div class="grid">
+  <div class="grid">...</div>
 ```
 ```css
 .grid {
@@ -53,21 +72,21 @@ div {
 }
 ```
 
-Remember: import component, declare component, use component.
-
 # Opdracht 3
-> Zorg dat het bord de status bij kan houden. 
+> Zorg dat het bord speelbaar wordt (Winsituaties e.d. zijn hier nog niet van belang. Dit komt in latere opdrachten)
 
-Hierbij moet het mogelijk zijn om op een vlak te klikken en vervolgens dit op te slaan.
+Er moet op een vak geklikt kunnen worden. Dit moet vervolgens opgeslagen worden en getoond op het scherm. 
 
 # Opdracht 4
 
 > Belangrijk bij dit spel is om te zien wie er aan de beurt is en of er gewonnen is (of gelijkspel). 
 
-De focus tijdens deze opdrachten ligt op Vue. Niet op het uitwerken van de spelmechanics. Daarom krijg je deze code cadeau. Zorg dat er een nieuw component komt die het volgende bijhoudt:
+Zorg dat het bord het volgende bijhoudt en toont:
 * Wie is er nu aan de beurt?
 * Heeft er iemand gewonnen?
 * Is het gelijkspel?
+
+De focus ligt tijdens deze opdrachten op Vue, niet op het uitwerken van de spelmechanics. Daarom krijg je deze code cadeau. Deze methode geeft een boolean terug of het spel door één van beide spelers is gewonnen.
 
 ```javascript
 function gameIsWon() {
@@ -87,24 +106,54 @@ function gameIsWon() {
 ```
 
 # Opdracht 5
+
+> New game
+
+Zorg dat er een knop komt om het spel te herstarten. Deze knop mag alleen beschikbaar zijn als het spel is afgelopen.
+
+# Opdracht 6
 > Zet een Vuex Store op
 
-Naarmate de code uitgebreid wordt, wordt het ook complexer. Door gebruik te maken van een store kan veel logica op één plek worden neergezet. Dit zorgt ervoor dat de code begrijpbaarder wordt. Dit zorgt er ook voor dat de componenten 'dommer' worden.
+Naarmate de code uitgebreid wordt, wordt het ook complexer. Door gebruik te maken van een store kan veel logica op één plek worden neergezet. Dit zorgt ervoor dat de code begrijpbaarder wordt. Dit zorgt er ook voor dat de componenten 'dommer' worden (er zit minder tot geen logica in de componenten).
 
-Reminder:
-De store bevindt zicht in de file store.js en bevat een aantal belangrijke dingen:
+De store bevindt zich in de file store.js en bevat een aantal dingen:
 * state. Bevat de daadwerkelijke data
 * mutations. Bevat de methodes om de state te muteren
 * getters. Bevat de methodes om data uit de state op te halen
 
-* Een methode in de store kan zowel de state als de getters meekrijgen. Dit kan door ze simpelweg als parameter in de methode neer te zetten:
+**LET OP: Alleen via de mutations mag een store worden aangepast!**
+
+Een methode in de store kan zowel de state als de getters meekrijgen. Dit kan door ze simpelweg als parameter in de methode neer te zetten:
 ```javascript
- getWinner: (state, getters) => {
-     return getters.gameIsWon ? state.currentPlayer: null;
-   },
+getWinner: function(state, getters) {
+    return getters.gameIsWon ? state.currentPlayer: null;
+}
 ```
 
-# Opdracht 6
-> Voeg een scorebord toe
+# Opdracht 7
+> Voeg een scorebord component toe
 
-Voeg een extra component to die met behulp van de Vuex store de score kan bijhouden.
+Voeg een extra component to die met behulp van de Vuex store de score kan bijhouden. Toon deze ook op het scherm.
+
+
+# Opdracht 8
+> Historie en score op een losse pagina
+
+Zorg dat je in de state ook een historie van de zetten bijhoudt. 
+
+Toon vervolgens op een losse pagina (gebruik routing) deze historie vanuit de store. Plaats de view componenten in het mapje 'views'.
+Dit het voorbeeld van hoe routing er in een template uit ziet (https://router.vuejs.org/guide/#html).
+
+De posities worden ook getoond in de historie en worden nu geidentifcieerd door een afkorting (LT = Linksboven, CM, midden, RB, rechtsonder). Zorg dat er een filter (pipe) komt die deze afkortingen vertaalt naar een mooie Nederlandse tekst (https://vuejs.org/v2/guide/filters.html).
+
+ ```javascript 
+ <template>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link>
+    </div>
+    <router-view/>
+  </div>
+</template>
+
+ ```
