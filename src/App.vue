@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h2>Staq - Introduction Vue.js</h2>
-    <img src="../assets/logo.png">
+    <img src="./assets/logo.png">
   </div>
 </template>
 
@@ -9,7 +9,6 @@
 
 export default {
   components: {
-    Home
   }
 }
 </script>
