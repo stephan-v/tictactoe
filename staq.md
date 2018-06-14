@@ -2,6 +2,11 @@
 
 Tijdens deze hands-on sessie gaan we Vue leren kennen. Dit door het spel TicTacToe (/Boter-kaas-en-eieren) te bouwen (https://nl.wikipedia.org/wiki/Boter-kaas-en-eieren).
 
+# Voorbereiding
+
+Om te kunnen starten dien je allereerst het commando "npm install" te draaien. Dit commando installeert alle dependencies van het project.
+Om vervolgens de code te kunnen draaien kan je het commando "npm run start" draaien.
+
 # Opdracht 1
 >Maak een component voor het spel TicTacToe (components/TicTactoe.vue). Een leeg component ziet er als volgt uit: 
 ```html
@@ -58,7 +63,7 @@ Om het spel te kunnen spelen zijn moet er een speelbord komen. Deze bestaat uit 
 
 Een component heeft altijd zijn eigen state. Delen van de app die vaker worden hergebruikt zijn dus ook uitstekend geschikt als component. Zorg daarom dat er een component komt voor de vlakken in het speelbord.
 
-\* Zorg dat het component alleen gegevens vasthoudt die ook echt nodig zijn!
+Zorg dat het component alleen gegevens vasthoudt die ook echt nodig zijn! Hierbij houdt het bordcomponent dus alle generieke dingen vast en de cel/vlak alleen wat deze nodig is.
 
 Voor deze vlakken kan je eventueel onderstaande CSS gebruiken. Zorg wel dat je de CSS alleen toepast op het component zelf!
 
@@ -75,13 +80,14 @@ div {
 # Opdracht 3
 > Zorg dat het bord speelbaar wordt (Winsituaties e.d. zijn hier nog niet van belang. Dit komt in latere opdrachten)
 
-Er moet op een vak geklikt kunnen worden. Dit moet vervolgens opgeslagen worden en getoond op het scherm. 
+Er moet op een vak geklikt kunnen worden. Dit moet vervolgens opgeslagen worden en getoond op het scherm. Het speelveld is opgeslagen in het bordcomponent. De cel zou dus tegen het bord moeten vertellen dat er op hem een zet is gedaan. Vervolgens vertelt het bord weer aan de cel welk teken (X of O) hij moet tonen. 
+We bouwen dit op deze manier omdat het bord verantwoordelijk is voor het speelveld. Het enige wat een cel hoeft te weten is wat zijn positie op het speelveld is en welk teken getoond moet worden. Het speelveld (in component bord) houdt bij waar welke marker staat en verteld dit dus aan de desbetreffende cellen op basis van de positie.
 
 # Opdracht 4
 
 > Belangrijk bij dit spel is om te zien wie er aan de beurt is en of er gewonnen is (of gelijkspel). 
 
-Zorg dat het bord het volgende bijhoudt en toont:
+Zorg dat het bord component het volgende bijhoudt en toont:
 * Wie is er nu aan de beurt?
 * Heeft er iemand gewonnen?
 * Is het gelijkspel?
@@ -139,7 +145,7 @@ Voeg een extra component toe dat met behulp van de Vuex store de score kan bijho
 # Opdracht 8
 > Historie en score op een losse pagina
 
-Zorg dat je in de state ook een historie van de zetten bijhoudt. 
+Zorg dat je in de state ook een historie van de zetten bijhoudt. Hierbij wil je terug kunnen zien welke zetten er gedaan zijn tijdens een potje (dit kan per potje of doorlopend over meerdere potjes. Zorg dan dat er goed zichtbaar is wanneer een nieuw potje begint). Een goed voorbeeld hiervan is schaken, waar ze ook altijd bijhouden welke zetten zijn gedaan.
 
 Toon vervolgens op een losse pagina (gebruik routing) deze historie vanuit de store. Plaats de view componenten in het mapje 'views'.
 Dit het voorbeeld van hoe routing er in een template uit ziet (https://router.vuejs.org/guide/#html).
