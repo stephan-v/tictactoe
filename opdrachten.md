@@ -83,7 +83,9 @@ div {
 > Zorg dat het bord speelbaar wordt (Winsituaties e.d. zijn hier nog niet van belang. Dit komt in latere opdrachten)
 
 Er moet op een vak geklikt kunnen worden. Dit moet vervolgens opgeslagen worden en getoond op het scherm. Het speelveld is opgeslagen in het bordcomponent. De cel zou dus tegen het bord moeten vertellen dat er op hem een zet is gedaan. Vervolgens vertelt het bord weer aan de cel welk teken (X of O) hij moet tonen. 
-We bouwen dit op deze manier omdat het bord verantwoordelijk is voor het speelveld. Het enige wat een cel hoeft te weten is wat zijn positie op het speelveld is en welk teken getoond moet worden. Het speelveld (in component bord) houdt bij waar welke marker staat en verteld dit dus aan de desbetreffende cellen op basis van de positie.
+We bouwen dit op deze manier omdat het bord verantwoordelijk is voor het speelveld. Het enige wat een cel hoeft te weten is wat zijn positie op het speelveld is en welk teken getoond moet worden. Het speelveld (in component bord) houdt bij waar welke marker staat en verteld dit dus aan de desbetreffende cellen op basis van de positie; Left Top, Center Top, Left Center, etc. 
+Ter illustratie (en het is gemakkelijker deze afkortingen ook aan te houden):
+![](opdracht-posities.png)
 
 # Opdracht 4
 
