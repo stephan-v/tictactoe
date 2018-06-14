@@ -7,6 +7,8 @@ Tijdens deze hands-on sessie gaan we Vue leren kennen. Dit door het spel TicTacT
 Om te kunnen starten dien je allereerst het commando "npm install" te draaien. Dit commando installeert alle dependencies van het project.
 Om vervolgens de code te kunnen draaien kan je het commando "npm run start" draaien.
 
+De startstructuur bestaat uit een App.vue die als de 'root' van onze Single Page Application werkt. Deze bevat één standaard view, namelijk Home. Initieel is het handig om alle componenten in Home plaatsen. Later gaan we nog wat doen met routing. Wees dan vooral vrij om het in te delen zoals je het zelf mooi vindt!
+
 # Opdracht 1
 >Maak een component voor het spel TicTacToe (components/TicTactoe.vue). Een leeg component ziet er als volgt uit: 
 ```html
@@ -22,11 +24,11 @@ Om vervolgens de code te kunnen draaien kan je het commando "npm run start" draa
 </style>
 ```
 
-Import het component in App.vue
+Import het component in Home.vue
 ```js 
 import TicTacToe from './components/TicTacToe.vue';
 ```
-Declare het component in App.vue
+Declare het component in Home.vue
 ```js
 export default {
   components: {
@@ -36,7 +38,7 @@ export default {
 ```
 Zet het in de template:
 ```html
-<div id="app">
+<div id="home">
   <TicTacToe></TicTacToe>   
 </div>
 ``` 

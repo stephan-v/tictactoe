@@ -1,14 +1,15 @@
 <template>
   <div id="app">
-    <h2>Staq - Introduction Vue.js</h2>
-    <img src="./assets/logo.png">
+   <Home/>
   </div>
 </template>
 
 <script>
+import Home from './views/Home.vue';
 
 export default {
   components: {
+    Home
   }
 }
 </script>
