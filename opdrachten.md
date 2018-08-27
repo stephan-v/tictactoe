@@ -87,11 +87,13 @@ We bouwen dit op deze manier omdat het bord verantwoordelijk is voor het speelve
 Ter illustratie (en het is gemakkelijker deze afkortingen ook aan te houden):
 ![](opdracht-posities.png)
 
+Tip: Maak gebruik van Events of $parent. Op deze manier kun je makkelijk communiceren tussen componenten
+
 # Opdracht 4
 
 > Belangrijk bij dit spel is om te zien wie er aan de beurt is en of er gewonnen is (of gelijkspel). 
 
-Zorg dat het bord component het volgende bijhoudt en toont:
+Zorg dat het bord component het volgende bijhoudt en toont via een eigen "StatusComponent":
 * Wie is er nu aan de beurt?
 * Heeft er iemand gewonnen?
 * Is het gelijkspel?
@@ -99,20 +101,20 @@ Zorg dat het bord component het volgende bijhoudt en toont:
 De focus ligt tijdens deze opdrachten op Vue, niet op het uitwerken van de spellogica. Daarom krijg je deze code cadeau. Deze methode geeft een boolean terug of het spel door één van beide spelers is gewonnen.
 
 ```javascript
-function gameIsWon() {
- return cellsAreEqual(this.cellMarkers.LT, this.cellMarkers.CT, this.cellMarkers.RT) 
-        || cellsAreEqual(this.cellMarkers.LM, this.cellMarkers.CM, this.cellMarkers.RM)
-        || cellsAreEqual(this.cellMarkers.LB, this.cellMarkers.CB, this.cellMarkers.RB)
-        || cellsAreEqual(this.cellMarkers.LT, this.cellMarkers.LM, this.cellMarkers.LB)
-        || cellsAreEqual(this.cellMarkers.CT, this.cellMarkers.CM, this.cellMarkers.CB)
-        || cellsAreEqual(this.cellMarkers.RT, this.cellMarkers.RM, this.cellMarkers.RB)
-        || cellsAreEqual(this.cellMarkers.LT, this.cellMarkers.CM, this.cellMarkers.RB)
-        || cellsAreEqual(this.cellMarkers.LB, this.cellMarkers.CM, state.cellMarkers.RT)
-          
-     function cellsAreEqual(firstCell, secondCell, thirdCell) {
-       return firstCell !== ''   && firstCell === secondCell && secondCell === thirdCell; 
-     }
-}
+gameIsWon: function() {
+            return cellsAreEqual(this.cellMarkers.LT, this.cellMarkers.CT, this.cellMarkers.RT) 
+                || cellsAreEqual(this.cellMarkers.LM, this.cellMarkers.CM, this.cellMarkers.RM)
+                || cellsAreEqual(this.cellMarkers.LB, this.cellMarkers.CB, this.cellMarkers.RB)
+                || cellsAreEqual(this.cellMarkers.LT, this.cellMarkers.LM, this.cellMarkers.LB)
+                || cellsAreEqual(this.cellMarkers.CT, this.cellMarkers.CM, this.cellMarkers.CB)
+                || cellsAreEqual(this.cellMarkers.RT, this.cellMarkers.RM, this.cellMarkers.RB)
+                || cellsAreEqual(this.cellMarkers.LT, this.cellMarkers.CM, this.cellMarkers.RB)
+                || cellsAreEqual(this.cellMarkers.LB, this.cellMarkers.CM, this.cellMarkers.RT)
+                
+            function cellsAreEqual(firstCell, secondCell, thirdCell) {
+            return firstCell !== ''   && firstCell === secondCell && secondCell === thirdCell; 
+            }
+        }
 ```
 
 # Opdracht 5
@@ -131,6 +133,7 @@ De store bevindt zich in de file store.js en bevat een aantal dingen:
 * mutations. Bevat de methodes om de state te muteren
 * getters. Bevat de methodes om data uit de state op te halen
 
+**> Vergeet niet om de store aan te zetten in main.js!**
 **LET OP: Een store mag alleen via mutations worden aangepast!**
 
 Een methode in de store kan zowel de state als de getters meekrijgen. Dit kan door ze simpelweg als parameter in de methode neer te zetten:
