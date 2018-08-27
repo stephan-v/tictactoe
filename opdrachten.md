@@ -26,7 +26,7 @@ De startstructuur bestaat uit een App.vue die als de 'root' van onze Single Page
 
 Import het component in Home.vue
 ```js 
-import TicTacToe from './components/TicTacToe.vue';
+import TicTacToe from '../components/TicTacToe.vue';
 ```
 Declare het component in Home.vue
 ```js
